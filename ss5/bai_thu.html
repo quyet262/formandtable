@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo form lấy survey khách hàng</title>
+</head>
+<style>
+  .styled-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .styled-table th, .styled-table td {
+    border: 3px solid grey;
+    padding: 10px;
+    text-align: center;
+    width :80px;
+  }
+  tr:nth-child(odd) {
+    background-color: darkgray;
+  }
+
+</style>
+<body>
+<h1>Market Research Survey</h1>
+<p>please take a few momments to complete this satisfaction survey</p>
+<hr>
+<p>What is your age range?</p>
+<select>
+  <option value="">18-24</option>
+  <option>24-35</option>
+  <option>36-50</option>
+  <option>50+</option>
+</select>
+<p>What is tour yearly income range?</p>
+<select>
+  <option value="">$0-$25,000</option>
+  <option>$25,001-$50,000</option>
+  <option>$50,001-$100,000</option>
+  <option>$100,000+</option>
+</select>
+<p>Gender Identity</p>
+<input type="radio" name="name">Male<br>
+<input type="radio" name="name">Female<br>
+<p>Which of the following products have your purchased in</p>
+<input type="checkbox" name="pr"> Product 1<br>
+<input type="checkbox" name="pr"> Product 2<br>
+<input type="checkbox" name="pr"> Product 3<br>
+<p>How often would you use our new product?</p>
+<input type="radio" name="times">Daily
+<input type="radio" name="times">Weekly
+<input type="radio" name="times">Monthly
+<p>What would you pay for the new product</p>
+<table>
+  <tr>
+    <th style="width: 10px">$</th>
+    <th style="width: 55px"><input type="number" name="Dola" style="width: 50px"></th>
+    <th style="width: 5px">.</th>
+    <th style="width: 25px"><input type="number" name="Cent" style="width: 20px"></th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Dollars</td>
+    <td></td>
+    <td>Cents</td>
+  </tr>
+</table>
+<p>What features would you like to see in the new produc</p>
+<textarea cols="50" rows="4"> </textarea>
+
+<p>Please rate your level of agreement with the following statements.</p>
+<table class="styled-table">
+  <tr>
+    <th style="width: 200px"></th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+  </tr>
+  <tr>
+    <td style="text-align: left">Our products are priced fairly.</td>
+    <td><input type="radio" name="hang 1"><br>1</td>
+    <td><input type="radio" name="hang 1"><br>2</td>
+    <td><input type="radio" name="hang 1"><br>3</td>
+    <td><input type="radio" name="hang 1"><br>4</td>
+  </tr>
+  <tr>
+    <td style="text-align: left">Our products are high quality.</td>
+    <td><input type="radio" name="hang 2"><br>1</td>
+    <td><input type="radio" name="hang 2"><br>2</td>
+    <td><input type="radio" name="hang 2"><br>3</td>
+    <td><input type="radio" name="hang 2"><br>4</td>
+  </tr>
+  <tr>
+    <td style="text-align: left">You would recommend our product to a friend or coworker.</td>
+    <td><input type="radio" name="hang 3"><br>1</td>
+    <td><input type="radio" name="hang 3"><br>2</td>
+    <td><input type="radio" name="hang 3"><br>3</td>
+    <td><input type="radio" name="hang 3"><br>4</td>
+  </tr>
+</table>
+</body>
+</html>
