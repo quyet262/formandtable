@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Môn học</th>
+    <th>Điểm số</th>
+  </tr>
+  <tr>
+    <td>Vật lý</td>
+    <td><input type="number" id="vl"></td>
+  </tr>
+  <tr>
+    <td>Hoá học</td>
+    <td><input type="number" id="hh"></td>
+  </tr>
+  <tr>
+    <td>Sinh học</td>
+    <td><input type="number" id="sh"></td>
+  </tr>
+  <tr>
+    <td>Điểm trung bình:</td>
+    <td id="dtb"></td>
+  </tr>
+  <tr>
+    <td>Tổng điểm:</td>
+    <td id="td"></td>
+  </tr>
+</table>
+<button onclick="dtb()">Kiểm tra</button>
+</body>
+</html>
+<script>
+  function dtb () {
+    let a = +document.getElementById('vl').value;
+    let b = +document.getElementById('hh').value;
+    let c = +document.getElementById('sh').value;
+    document.getElementById('dtb').innerHTML = ( a + b + c) / 3;
+    document.getElementById('td').innerHTML = a + b +c;
+    document.getElementById('vl').value = '';
+    document.getElementById('hh').value = '';
+    document.getElementById('sh').value = '';
+
+  }
+</script>
