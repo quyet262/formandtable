@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Diện tích hình tròn</h1>
+<input type="number"; id="bk"> <button onclick="bkht()">Kiểm tra</button>
+<p id="kq">Kết quả:</p>
+
+
+</body>
+</html>
+<script>
+  function bkht () {
+    let x = +document.getElementById('bk').value;
+    document.getElementById('kq').innerHTML = 'Kết quả: ' + 3.14 * x * x
+  }
+</script>
