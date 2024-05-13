@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nb">
+<button onclick="ssvoi0()">Kiểm tra</button>
+<p id="kq"></p>
+</body>
+</html>
+<script>
+  function ssvoi0() {
+    let number = document.getElementById('nb').value;
+    if (number > 0) {
+      document.getElementById('kq').innerHTML = number + 'Lớn hơn 0';
+    } else {
+      if (number < 0) {
+        document.getElementById('kq').innerHTML = number + 'Nhỏ hơn 0';
+      } else {
+        document.getElementById('kq').innerHTML = number + 'bằng 0'
+      }
+    }
+  }
+</script>

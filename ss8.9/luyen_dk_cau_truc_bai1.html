@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập A</p><input type="number" id="nb1"><br>
+<p>Nhập B</p><input type="number" id="nb2"><br>
+<button onclick="kt()">Check</button>
+<p id="kq"></p>
+</body>
+</html>
+<script>
+function kt()
+{
+  let a = document.getElementById('nb1').value;
+  let b = document.getElementById('nb2').value;
+  if (a % b == 0) {
+    document.getElementById('kq').innerHTML = 'A chia hết cho B';
+  }
+  else {
+    document.getElementById('kq').innerHTML = 'A không chia hết cho B';
+  }
+}
+</script>
