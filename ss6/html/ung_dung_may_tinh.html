@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="sh1" placeholder="Nhập số thứ nhất">
+<input type="number" id="sh2" placeholder="Nhập số thứ hai">
+<button onclick="cong()">Cộng</button>
+<button onclick="tru()">Trừ</button>
+<button onclick="nhan()">Nhân</button>
+<button onclick="chia()">Chia</button>
+<p id="kq">Result:</p>
+</body>
+</html>
+<script>
+  function cong()
+  {
+    let number1 = +document.getElementById('sh1').value;
+    let number2 = +document.getElementById('sh2').value;
+    document.getElementById('kq').innerHTML = 'result: ' + (number1+number2);
+  }
+  function tru()
+  {
+    let number1 = +document.getElementById('sh1').value;
+    let number2 = +document.getElementById('sh2').value;
+    document.getElementById('kq').innerHTML = 'result: ' + (number1-number2);
+  }
+ function nhan()
+  {
+    let number1 = +document.getElementById('sh1').value;
+    let number2 = +document.getElementById('sh2').value;
+    document.getElementById('kq').innerHTML = 'result: ' + (number1 * number2);
+  }function chia()
+  {
+    let number1 = +document.getElementById('sh1').value;
+    let number2 = +document.getElementById('sh2').value;
+    document.getElementById('kq').innerHTML = 'result: ' + (number1 / number2);
+  }
+</script>
