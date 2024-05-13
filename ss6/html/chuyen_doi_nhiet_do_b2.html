@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="dc">
+<button onclick="kt()">Nhập</button>
+<p id="kq">Result:</p>
+</body>
+</html>
+<script>
+    function kt() {
+        let c = document.getElementById('dc').value;
+        document.getElementById('kq').innerHTML = 'Result:' + (9 * c / 5 + 32)
+    }
+</script>
