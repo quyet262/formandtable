@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<img src="../zoro.jpg" style="width: 100px; top: 100px; left: 100px; position: absolute" id="x"/>
+<button onclick="phai()">Sang phải</button>
+<button onclick="trai()">Sang trái</button>
+<button onclick="tren()">Lên trên</button>
+<button onclick="duoi()">Xuống dưới</button>
+</body>
+</html>
+<script>
+    function phai(){
+        let anh = document.getElementById('x')
+        anh.style.left = parseInt(anh.style.left) + 20 + 'px'
+    }
+    function trai(){
+        let anh = document.getElementById('x')
+        anh.style.left = parseInt(anh.style.left) - 20 + 'px'
+    }
+    function tren(){
+        let anh = document.getElementById('x')
+        anh.style.top = parseInt(anh.style.top) - 20 + 'px'
+    }
+    function duoi(){
+        let anh = document.getElementById('x')
+        anh.style.top = parseInt(anh.style.top) + 20 + 'px'
+    }
+
+</script>

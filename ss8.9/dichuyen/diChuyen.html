@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../zoro.jpg" style="width: 100px; top: 100px; left: 100px; position: absolute" id="x"/>
+</body>
+</html>
+<script>
+  setInterval(()=>{
+      let anh = document.getElementById('x');
+      let left = parseInt(anh.style.left) + 1
+      anh.style.left = left + 'px'
+      if (left > 844) {
+          anh.style.left = 0 + 'px'  ;
+      }
+  },1);
+
+</script>

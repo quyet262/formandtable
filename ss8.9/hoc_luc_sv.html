@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">Xếp hạng sinh viên</h1>
+<table border="1">
+    <tr>
+        <th>Tên</th>
+        <th>Điểm kiểm tra</th>
+        <th>Điểm giữa kì</th>
+        <th>Điểm cuối kì</th>
+        <th>Tổng điểm</th>
+        <th>Xếp loại</th>
+    </tr>
+    <tr style="text-align: center">
+        <td>Nguyễn văn A</td>
+        <td><input type="number" id="kt"></td>
+        <td><input type="number" id="gk"></td>
+        <td><input type="number" id="ck"></td>
+        <td id="td"></td>
+        <td id="kq"></td>
+    </tr>
+</table>
+<button onclick="diem()">kiểm tra</button>
+</body>
+</html>
+<script>
+    function diem(){
+    let kt = +document.getElementById('kt').value;
+    let gk = +document.getElementById('gk').value;
+    let ck = +document.getElementById('ck').value;
+    let tong = kt * 2 + gk * 3 + ck * 5
+    if (tong < 45) {
+        document.getElementById('kq').innerHTML = 'Yếu';
+        document.getElementById('td').innerHTML = tong;
+    }else if (tong <= 65) {
+        document.getElementById('kq').innerHTML = 'Trung bình';
+        document.getElementById('td').innerHTML = tong;
+    } else if (tong <=75) {
+        document.getElementById('kq').innerHTML = 'Khá'
+        document.getElementById('td').innerHTML = tong;
+    }else {
+        document.getElementById('kq').innerHTML = 'Giỏi'
+        document.getElementById('td').innerHTML = tong;
+    }
+    }
+</script>

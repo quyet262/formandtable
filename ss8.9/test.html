@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../zoro.jpg" style="width: 100px; top: 100px; left: 100px; position: absolute" id="x"/>
+
+<script>
+    setInterval(()=> {
+        let anh = document.getElementById('x');
+        anh.style.left = parseInt(anh.style.left) + 1 + 'px';
+    },1);
+</script>
+</body>
+</html>
