@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hoa hồng bán được</h1>
+<table border="1">
+  <tr>
+    <th>Tên NV</th>
+    <th>Doanh số</th>
+    <th>Hoa hồng (%)</th>
+  </tr>
+  <tr>
+    <td>Lý Lâm Linh</td>
+    <td><input type="number" id="ds"></td>
+    <td id="hh"></td>
+  </tr>
+</table>
+<button onclick="thh()" >Check</button>
+</body>
+</html>
+<script>
+  function thh() {
+    let doanhso = +document.getElementById('ds').value;
+    if (doanhso < 1000000) {
+      document.getElementById('hh').innerHTML = 0;
+    } else if (doanhso <= 5000000) {
+      document.getElementById('hh').innerHTML = 5;
+    }else if (doanhso <= 50000000) {
+      document.getElementById('hh').innerHTML = 10;
+    }else if (doanhso < 500000000){
+      document.getElementById('hh').innerHTML = 15;
+    }else {
+      document.getElementById('hh').innerHTML = 20;
+    }
+  }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính cước điện thoại hộ gia đình</h1>
+<p>Thời gian gọi (p)</p><br>
+<input type="number" id="tg"><button onclick="cdt()">Kiểm tra</button>
+<p id="kq"></p>
+</body>
+</html>
+<script>
+    function cdt () {
+        let cuoc = +document.getElementById('tg').value;
+        let giacuoc = 0;
+        if (cuoc <= 20) {
+            giacuoc = 100;
+        } else if (cuoc <= 60) {
+            giacuoc = 200;
+        }else if (cuoc <= 100) {
+            giacuoc = 500;
+        } else {
+           giacuoc = 1000;
+        }
+        let tong = cuoc * giacuoc;
+        document.getElementById('kq').textContent = 'Tổng cước điện thoại là: ' + tong.toLocaleString() + 'VND';
+    }
+</script>

@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính cước điện thoại gia đình</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            padding: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<img src="../zoro.jpg" style="width: 100px; top: 100px; left: 100px; position: absolute" id="x"/>
+<h1>Tính cước điện thoại của gia đình</h1>
+<form id="phoneBillForm">
+    <label for="callDurations">Thời gian mỗi cuộc gọi (phút):</label>
+    <input type="text" id="callDurations" value="10, 15, 7, 20, 5" required>
+
+    <button type="button" onclick="calculateBill()">Tính cước</button>
+</form>
+
+<div id="result"></div>
 
 <script>
-    setInterval(()=> {
-        let anh = document.getElementById('x');
-        anh.style.left = parseInt(anh.style.left) + 1 + 'px';
-    },1);
+    function calculateBill() {
+        // Lấy giá trị từ form
+        const callDurations = document.getElementById('callDurations').value.split(',').map(Number);
+
+        // Tính tổng thời gian gọi trong tháng
+        let totalMinutes = 0;
+        for (let i = 0; i < callDurations.length; i++) {
+            totalMinutes += callDurations[i];
+        }
+
+        // Xác định mức giá phù hợp
+        let ratePerMinute;
+        if (totalMinutes < 10) {
+            ratePerMinute = 100;
+        } else if (totalMinutes < 60) {
+            ratePerMinute = 200;
+        } else {
+            ratePerMinute = 500;
+        }
+
+        // Tính tổng cước
+        let totalBill = totalMinutes * ratePerMinute;
+
+        // Hiển thị kết quả
+        document.getElementById('result').textContent = 'Tổng cước điện thoại là: ' + totalBill.toLocaleString() + ' VND';
+    }
 </script>
 </body>
 </html>
+
+
