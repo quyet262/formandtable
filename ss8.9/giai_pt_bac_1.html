@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Giải pt bậc 1</h1>
+<p>Phương trình: Ax+b=0</p>
+<input type="number" placeholder="Nhập A" id="a"><input type="number" placeholder="Nhập B" id="b">
+<button onclick="giaipt()">Kết quả</button>
+<p id="x"></p>
+</body>
+</html>
+<script>
+  function giaipt() {
+    let a = +document.getElementById('a').value;
+    let b = +document.getElementById('b').value;
+document.getElementById('x').textContent = 'X = ' + (-b / a)
+  }
+</script>

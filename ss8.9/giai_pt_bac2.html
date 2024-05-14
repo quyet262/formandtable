@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Giải pt bậc 2</h1>
+<p>Phương trình bậc 2: Ax²+Bx+c=0</p>
+<input type="number" placeholder="Nhập a:" id="a"><input type="number" placeholder="Nhập b:" id="b"><input type="number" placeholder="Nhập c:" id="c">
+<button onclick="ptb2()">Kết quả</button>
+<p id="kq"></p>
+</body>
+</html>
+<script>
+  function ptb2() {
+    let a = +document.getElementById('a').value;
+    let b = +document.getElementById('b').value;
+    let c = +document.getElementById('c').value;
+    let delta = b * b - (4 * a * c)
+    let candelta = Math.sqrt(delta)
+    if (a === 0) {
+      document.getElementById('kq').textContent = 'Phương trình có 1 nghiệm: x = ' + -c/b
+    }
+    if (a !== 0 && delta > 0) {
+        document.getElementById('kq').textContent = 'Phương trình có 2 nghiệm: x1 = ' + (-b + candelta)/2 + ' Và ' + 'x2 =  ' + (-b - candelta)/2;
+      }
+    if (a !== 0 && delta === 0) {
+        document.getElementById('kq').textContent = 'Phương trình có nghiệm kép: x = ' + -b / (2 *a) ;
+      }
+    if (a !== 0 && delta < 0){
+        document.getElementById('kq').textContent = 'Phương trình vô nghiệm';
+      }
+  }
+</script>

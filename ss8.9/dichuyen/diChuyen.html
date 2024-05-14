@@ -9,13 +9,18 @@
 </body>
 </html>
 <script>
+    let v = 5;
+    let v1 = 5;
   setInterval(()=>{
       let anh = document.getElementById('x');
-      let left = parseInt(anh.style.left) + 1
-      anh.style.left = left + 'px'
-      if (left > 844) {
-          anh.style.left = 0 + 'px'  ;
+      anh.style.left = parseInt(anh.style.left) + v + 'px'
+      if ( parseInt(anh.style.left) > window.innerWidth - 100 || parseInt(anh.style.left) == 0 ) {
+          v = -v  ;
       }
-  },1);
+      anh.style.top = parseInt(anh.style.top) + v1 + 'px'
+      if ( parseInt(anh.style.top) > window.innerHeight - 140 || parseInt(anh.style.top) == 0 ) {
+          v1 = -v1  ;
+      }
+  },50);
 
 </script>

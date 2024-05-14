@@ -35,43 +35,11 @@
     </style>
 </head>
 <body>
-<h1>Tính cước điện thoại của gia đình</h1>
-<form id="phoneBillForm">
-    <label for="callDurations">Thời gian mỗi cuộc gọi (phút):</label>
-    <input type="text" id="callDurations" value="10, 15, 7, 20, 5" required>
-
-    <button type="button" onclick="calculateBill()">Tính cước</button>
-</form>
-
-<div id="result"></div>
 
 <script>
-    function calculateBill() {
-        // Lấy giá trị từ form
-        const callDurations = document.getElementById('callDurations').value.split(',').map(Number);
-
-        // Tính tổng thời gian gọi trong tháng
-        let totalMinutes = 0;
-        for (let i = 0; i < callDurations.length; i++) {
-            totalMinutes += callDurations[i];
-        }
-
-        // Xác định mức giá phù hợp
-        let ratePerMinute;
-        if (totalMinutes < 10) {
-            ratePerMinute = 100;
-        } else if (totalMinutes < 60) {
-            ratePerMinute = 200;
-        } else {
-            ratePerMinute = 500;
-        }
-
-        // Tính tổng cước
-        let totalBill = totalMinutes * ratePerMinute;
-
-        // Hiển thị kết quả
-        document.getElementById('result').textContent = 'Tổng cước điện thoại là: ' + totalBill.toLocaleString() + ' VND';
-    }
+    let number = 16;
+    let sqrtNumber = Math.sqrt(number);
+    console.log(`Căn bậc hai của ${number} là ${sqrtNumber}`);
 </script>
 </body>
 </html>
