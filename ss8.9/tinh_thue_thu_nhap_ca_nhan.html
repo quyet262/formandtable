@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính thuế thu nhập cá nhân</h1>
+<table border="1">
+  <tr>
+    <th>Tên</th>
+    <th>Thu nhập (VND)</th>
+    <th>Thuế phải trả</th>
+  </tr>
+  <tr>
+    <td><b>Nguyễn văn A</b></td>
+    <td><input type="number" id="thunhap"></td>
+    <td id="thue"></td>
+  </tr>
+</table>
+<button onclick="tinhthue()">Kiểm tra</button>
+</body>
+</html>
+<script>
+  function tinhthue(){
+    let thunhap = document.getElementById('thunhap').value;
+    if (thunhap <= 5000000){
+      document.getElementById('thue').textContent = thunhap * 0.05 + 'VND';
+    }else if (thunhap <=10000000) {
+      document.getElementById('thue').textContent = thunhap * 0.1 + 'VND';
+    }else if (thunhap <= 18000000){
+      document.getElementById('thue').textContent = thunhap * 0.15 + 'VND';
+    }else if (thunhap <=32000000){
+      document.getElementById('thue').textContent = thunhap * 0.2 + 'VND';
+    }else if (thunhap <=52000000){
+      document.getElementById('thue').textContent = thunhap * 0.25 + 'VND';
+    }else if (thunhap <= 80000000) {
+      document.getElementById('thue').textContent = thunhap * 0.3 + 'VND';
+    }else {
+      document.getElementById('thue').textContent = thunhap * 0.35 + 'VND';
+    }
+  }
+</script>

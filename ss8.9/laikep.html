@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let sotienbandau = +prompt('Nhập số tiền gửi: ');
+  let sothang = +prompt('Nhập số tháng gửi: ');
+  let laisuat = +prompt('Nhập lãi suất: ');
+  alert(sotienbandau * Math.pow((1 + laisuat * 0.01),sothang))
+</script>
+</body>
+</html>

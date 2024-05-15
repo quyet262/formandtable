@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let nam = parseInt(prompt('Nhập năm: '));
+  if (nam%4 == 0) {
+      if (nam % 100 == 0) {
+          if (nam % 400 == 0) {
+              alert(nam + ' là năm nhuận');
+          } else {
+              alert(nam + ' là năm không nhuận');
+          }
+      } else {
+          alert(nam + ' là năm nhuận');
+      }
+  }
+          else  {
+              alert(nam + ' là năm không nhuận');
+
+  }
+
+</script>
+</body>
+</html>

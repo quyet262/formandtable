@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính Giá Điện</h1>
+<label>nhập số điện (kWh):</label>
+<input type="number" id="sodien">
+<button onclick="tinhGiaDien()">Kiểm tra</button>
+<p id="kq"></p>
+</body>
+</html>
+<script>
+  function tinhGiaDien(){
+    let soDien = document.getElementById('sodien').value;
+    let tienDien = 0;
+    if (soDien <=100){
+     tienDien = soDien * 1806;
+    }else if (soDien <=200){
+      tienDien = (100*1806) + (soDien - 100) * 2167;
+    }else if (soDien <=400){
+      tienDien = (100*1806) + (100 * 2167) + (soDien - 200) * 2729;
+    }else if (soDien <=700){
+      tienDien = (100*1806) + (100 * 2167) + (200 * 2729) + (soDien - 400)  * 3251;
+    }else {
+     tienDien = (100*1806) + (100 * 2167) + (200 * 2729) + (300 * 3251) + (soDien - 700);
+    }
+    document.getElementById('kq').textContent = 'Tiền điện phải trả là: ' + tienDien.toLocaleString() + ' (VND)';
+  }
+</script>
