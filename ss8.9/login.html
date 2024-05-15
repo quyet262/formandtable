@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Đăng nhập</h1>
+<input type="text" id="add" placeholder="Tên đăng nhập"><br>
+<input type="text" id="pass" placeholder="Mật khẩu"><br>
+<button onclick="dangNhap()" id="dn">Đăng nhập</button>
+<h2 id="kq"></h2>
+</body>
+</html>
+<script>
+  function dangNhap() {
+    let add = document.getElementById('add').value;
+    let pass = document.getElementById('pass').value;
+    if (add === 'Admin') {
+      if (pass === 'TheMaster') {
+        document.getElementById('kq').innerHTML = 'Welcome'
+      } else if (pass === 'null') {
+        document.getElementById('kq').innerHTML = 'Canceled'
+      } else {
+        document.getElementById('kq').innerHTML = 'Wrong password'
+      }
+    }else if (add === 'null') {
+        document.getElementById('kq').innerHTML = 'Canceled'
+      }else {
+        document.getElementById('kq').innerHTML = 'I do not know you'
+      }
+
+  }
+</script>
