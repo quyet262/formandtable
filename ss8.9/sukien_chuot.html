@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt=""  style=" left: 100px; top: 100px; position: absolute; width: 100px; height: 100px" id="ball">
+<button onclick="ball()">click me</button>
+</body>
+</html>
+<script>
+  function ball() {
+    let anh = document.getElementById('ball');
+    anh.style.left = parseInt(anh.style.left) + 20 + 'px'
+  }
+</script>
