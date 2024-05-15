@@ -5,10 +5,16 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Do you love me?</h1>
+<button onclick="document.getElementById('cn').innerHTML = 'I LOVE YOU'">Yes</button>
+<button onmouseover="nut()" id="no"; style="position: absolute; top: 100px; left: 100px">No</button>
+<h1 id="cn"><strong></strong></h1>
 <script>
-  let x = +prompt('nhập nam:')
-  let y = +prompt('nhập nữ:')
-  if
+    function nut() {
+        let nut = document.getElementById('no');
+        nut.style.left = Math.random() * window.innerWidth + 'px'
+        nut.style.top = Math.random() * window.innerHeight + 'px'
+    }
 </script>
 </body>
 </html>
