@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = parseInt(+prompt('Nhập n số nguyên tố đầu tiên: '));
+  timsoNT (a);
+  function timsoNT(a) {
+      let soUoc = 0;
+      let soNTDaTim = 0;
+      for (let i = 2; i < 1000; i++) {
+          if (soNTDaTim < a) {
+              for (let j = 1; j <= i; j++) {
+                  if (i % j == 0) {
+                      soUoc += 1;
+                  }
+                  }
+              if (soUoc == 2) {
+                  document.write(i + "<br>");
+                  soNTDaTim += 1;
+              }
+              soUoc = 0;
+          }else {
+              break;
+          }
+
+      }
+
+  }
+
+</script>
+</body>
+</html>
