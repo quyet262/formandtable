@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function fibonacci(n) {
+    let fibSeq = [0, 1];
+    for (let i = 2; i < n; i++) {
+      fibSeq[i] = fibSeq[i - 1] + fibSeq[i - 2];
+    }
+    return fibSeq;
+  }
+  let n = 20;
+  let fibSequence = fibonacci(n);
+  for (let i = 0; i < fibSequence.length; i++) {
+    document.write(fibSequence[i] + "<br>");
+  }
+
+</script>
+</body>
+</html>

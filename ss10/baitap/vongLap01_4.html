@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let fibo = [0, 1];
+    for (let i = 2; i < 10; i++) {
+        fibo[i] = fibo[i - 1] + fibo[i - 2];
+        if (fibo [i] % 5 ==0) {
+            document.write(fibo[i]);
+            break;
+        }
+    }
+</script>
+</body>
+</html>
