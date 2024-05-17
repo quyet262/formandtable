@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  for (let a = 1; a<=2; a++){
+      if ( a ==1) {
+          for (let b = 1; b<=17; b++) {
+              if (b <=3  || b == 9 || b == 10 || b == 11 || b >= 17) {
+                  document.write("&nbsp;&nbsp");
+              }else {
+                  document.write("*")
+              }
+          }
+      }
+      if ( a == 2) {
+          for (let b = 1; b<=17; b++) {
+              if (b <=2  || b == 10 || b >= 18) {
+                  document.write("&nbsp;&nbsp");
+              }else {
+                  document.write("*")
+              }
+          }
+      }
+    document.write("<br>");
+  }
+  for (let i = 1; i <= 9; i++) {
+    for (let j = 1; j <= i; j++) {
+      document.write("&nbsp;&nbsp");
+    }
+    for (let j = 18; j >=i*2; j--) {
+      document.write("*");
+    }
+    document.write("<br>");
+  }
+</script>
+</body>
+</html>

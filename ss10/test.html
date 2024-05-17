@@ -6,12 +6,40 @@
 </head>
 <body>
 <script>
-let i = 0;
-let x = o;
-while (i % 7 == 0) {
-    x = x+ i;
-    i++
-}
+    let N = ''
+    let M = '&nbsp;&nbsp'
+    for (let i = 1; i <= 2; i++) {
+        if (i == 1){
+            for (let j = 1; j <= 18 ; j++) {
+                if (j == 4 || j == 5 || j == 6 || j == 13 || j == 14 || j == 15)
+                {
+                    document.write('*')
+                }
+                else {
+                    document.write(M)
+                }
+            }
+
+        }
+        else {
+            for (let j = 1; j <= 18 ; j++) {
+                if (j == 1 || j == 9 ||j == 10 ||j == 18){
+                    document.write('&nbsp' + '&nbsp' )
+                }
+                else {
+                    document.write('*')
+                }
+            }
+        }
+        document.write('<br>')
+    }
+    for (let i = 9; i >=1 ; i--) {
+        for (let j = 1; j <= 2*i; j++) {
+            document.write('*')
+        }
+        N = N + M
+        document.write('<br>' + N)
+    }
 </script>
 </body>
 </html>
