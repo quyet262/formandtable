@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span>Tìm Kiếm <input type="text" id="nhap"><button id="check" onclick="tudien()">check</button></span>
+<p id="ketqua"></p>
+</body>
+</html>
+<script>
+  function tudien() {
+    let tutim = document.getElementById('nhap').value;
+    let kho = ["banana","orangen","mango","melon","pen","book",];
+    let kho1 = ["chuối","cam","xoài","dưa hấu","bút","sách"];
+    let trungGian = 0;
+    let ketqua = "";
+    for ( let i = 0; i< kho.length; i ++) {
+      if (tutim == kho[i]) {
+        trungGian = i;
+
+      for (let j = 0; j < kho1.length; j++) {
+        if (trungGian == j) {
+          ketqua = kho1[j];
+        }
+      }
+      }
+    }
+    document.getElementById('ketqua').innerHTML = ketqua;
+  }
+
+</script>

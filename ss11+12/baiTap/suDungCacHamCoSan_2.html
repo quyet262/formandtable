@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number = +prompt();
+  let chuoi = number.toString();
+  let hamChuoi = [chuoi[0]];
+  for (let i =1; i < chuoi.length; i++) {
+    if ((chuoi[i - 1] % 2 ==0 && chuoi[i] % 2 ==0)) {
+      hamChuoi.push('-' + chuoi[i]);
+    }else {
+      hamChuoi.push(chuoi[i]);
+    }
+
+  } alert(hamChuoi.join(''));
+</script>
+</body>
+</html>

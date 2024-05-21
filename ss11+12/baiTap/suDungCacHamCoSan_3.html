@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let chuoi = prompt('');
+  let hoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let thuong = 'abcdefghijklmnopqrstuvwxyz';
+  let ketQua = [];
+  for (let i = 0; i < chuoi.length; i++) {
+    if(hoa.indexOf(chuoi[i]) !== -1) {
+      ketQua.push(chuoi[i].toLowerCase());
+    }else if (thuong.indexOf(chuoi[i]) !==-1) {
+      ketQua.push(chuoi[i].toUpperCase());
+    }else {
+      ketQua.push(chuoi[i]);
+    }
+  }
+  document.write(ketQua.join(''));
+
+</script>
+</body>
+</html>

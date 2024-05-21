@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nối hai mảng số nguyên</title>
+  <script>
+    function concatenateArrays() {
+      // Nhập mảng a từ người dùng
+      let inputArrayA = prompt("Nhập vào 10 số nguyên cho mảng a, cách nhau bằng dấu phẩy:");
+      let arrayA = inputArrayA.split(',').map(Number);
+
+      // Kiểm tra độ dài của mảng a
+      if (arrayA.length !== 10) {
+        alert("Vui lòng nhập đúng 10 số nguyên cho mảng a.");
+        return;
+      }
+
+      // Nhập mảng b từ người dùng
+      let inputArrayB = prompt("Nhập vào 10 số nguyên cho mảng b, cách nhau bằng dấu phẩy:");
+      let arrayB = inputArrayB.split(',').map(Number);
+
+      // Kiểm tra độ dài của mảng b
+      if (arrayB.length !== 10) {
+        alert("Vui lòng nhập đúng 10 số nguyên cho mảng b.");
+        return;
+      }
+
+      // Khởi tạo mảng c
+      let arrayC = [];
+
+      // Nối mảng b vào mảng c
+      for (let i = 0; i < arrayB.length; i++) {
+        arrayC.push(arrayB[i]);
+      }
+
+      // Nối mảng a vào mảng c
+      for (let i = 0; i < arrayA.length; i++) {
+        arrayC.push(arrayA[i]);
+      }
+
+      // Hiển thị mảng c
+      alert("Mảng sau khi nối từ mảng a và mảng b:\n" + arrayC.join(', '));
+    }
+  </script>
+</head>
+<body>
+<button onclick="concatenateArrays()">Nối hai mảng</button>
+</body>
+</html>
