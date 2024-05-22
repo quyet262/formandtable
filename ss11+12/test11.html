@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Sắp xếp mảng số nguyên giảm dần</title>
-    <script>
-        function sortDescending() {
-            // Nhập mảng số nguyên từ người dùng
-            let inputArray = prompt("Nhập vào 10 số nguyên, cách nhau bằng dấu phẩy (ví dụ: 1,2,3,4,5,6,7,8,9,10):");
-            let array = inputArray.split(',').map(Number);
-
-            // Kiểm tra độ dài của mảng
-            if (array.length !== 10) {
-                alert("Vui lòng nhập đúng 10 số nguyên.");
-                return;
-            }
-
-            // Sắp xếp mảng theo thứ tự giảm dần
-            array.sort(function(a, b) {
-                return b - a;
-            });
-
-            // Hiển thị mảng sau khi đã sắp xếp
-            alert("Mảng sau khi sắp xếp giảm dần:\n" + array.join(', '));
-        }
-    </script>
-</head>
 <body>
-<button onclick="sortDescending()">Sắp xếp mảng giảm dần</button>
+<h1>JavaScript Arrays</h1>
+<h2>The isArray() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+    const fruits = ["Banana", "Orange", "Apple"];
+    const citrus = fruits.slice(1);
+    document.getElementById("demo").innerHTML = fruits + "<br><br>" + citrus;
+</script>
+
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function hoiYKienNguoiChoi(yKien) {
+        let ketQua = "";
+        if (yKien) {
+            ketQua = "Mình cùng chiến nào"
+        }else {
+            ketQua = "Mày sợ à?"
+        }
+        return ketQua;
+    }
+    let hoiTham = confirm("Solo ván nha con gà");
+    let xong = hoiYKienNguoiChoi(hoiTham);
+    alert(xong);
+</script>
+</body>
+</html>

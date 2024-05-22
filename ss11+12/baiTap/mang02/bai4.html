@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = prompt("nhập vào 1 chuỗi cách nhau bằng dấu ,: ")
+  let b = a.split(',');
+  let thuong = 'abcdefghijklmnopqrstuvwxyz+-*/!@#$%^&&nbsp';
+  let hoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  dem = 0;
+  for (let i = 0; i < b.length; i++) {
+if (thuong.indexOf(b[i]) !== -1 || hoa.indexOf(b[i]) !== -1) {
+    dem++;
+    document.write(b[i] + '<br>');
+}
+  }document.write('số kí tự là; ' + dem);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function swap(a, b) {
+    let temp = a;
+    a = b;
+    b = temp;
+    return [a, b];
+  }
+
+  // Sử dụng hàm
+  let num1 = +prompt('nhập a: ');
+  let num2 = +prompt('nhập b: ');
+  [num1, num2] = swap(num1, num2);
+  alert('a = ' + num1 + ' và ' + ' b = ' + num2)
+</script>
+</body>
+</html>

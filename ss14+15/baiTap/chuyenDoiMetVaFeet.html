@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let met = +prompt('Nhập số met: ');
+  let feet = +prompt('Nhập số feet: ');
+  function metToFeet (met) {
+      return 3.279 * met
+  }
+  function feetToMet(feet) {
+      return 0.305 * feet
+  }
+ document.write(met + ' met = ' + metToFeet (met) + ' feet' + '<br>');
+ document.write(feet + ' feet = ' + feetToMet(feet) + ' met');
+
+
+</script>
+</body>
+</html>

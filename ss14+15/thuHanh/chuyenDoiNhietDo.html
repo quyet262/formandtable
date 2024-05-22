@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Bộ chuyển đổi nhiệt độ</h1>
+<h2>Nhập một giá trị độ F để chuyển đổi giá trị thành độ C</h2>
+<span>Độ F: <input type="number" oninput="chuyenDoiNhietDo(this.value)" id="doF"></span>
+<p id="doC">Độ C:</p>
+</body>
+</html>
+<script>
+  function chuyenDoiNhietDo (nhapDoF) {
+   document.getElementById('doC').innerHTML = (nhapDoF-32)/1.8;
+  }
+
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ngoiSao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let nhap = prompt('nhập vào ngôi sao cần kiểm tra: ');
+
+    function check(nhap) {
+        let ketQua = "";
+        for (let i = 0; i < ngoiSao.length; i++) {
+          if (nhap == ngoiSao[i]) {
+              ketQua = chomSao[i];
+              return ketQua
+          }
+          else {
+             ketQua = "Không tìm thấy ngôi sao của bạn."
+          }
+        }
+        alert(ketQua)
+    }
+alert('Ngôi sao bạn tìm thuộc chòm sao: ' + check(nhap))
+</script>
+</body>
+</html>

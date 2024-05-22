@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="nhapVao" oninput="tangX(this.value)">Nhập x:
+<p id="ketQua"></p>
+</body>
+</html>
+<script>
+  function tangX (x) {
+    document.getElementById('ketQua').innerHTML = x * 1 + 1
+  }
+
+</script>
