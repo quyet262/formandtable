@@ -6,15 +6,33 @@
 </head>
 <body>
 <script>
-  var a = [1,2,3,"d","f","g","d","d","g",1,"g","v",5,"v","v","v","v","v",];
-  var b = prompt('nhập kí tự: ');
-    let dem = 0
-    for (let i = 0; i < a.length; i++) {
-      if (b === a[i]) {
-        dem++;
-      }
-    }document.write(dem);
+    function check(x, array) {
+        let dem = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (x == array[i]) {
+                dem++;
+            }
+        }
+        if (dem !== 0) {
+            return dem;
+        } else {
+            return -1;
+        }
+    }
 
+    let n = +prompt('nhập độ dài của mảng:');
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        let element = prompt("nhập vào phần tử thứ : " + i);
+        array[i] = element;
+    }
+    alert("mảng vừa nhập : " + array);
+    let x = prompt('nhập vào kí tự cần kiểm tra: ');
+    if (check(x, array) !== -1) {
+        alert(x + ' được lặp ' + check(x, array) + ' lần');
+    } else {
+        alert(-1)
+    }
 </script>
 </body>
 </html>

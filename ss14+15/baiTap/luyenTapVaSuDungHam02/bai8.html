@@ -6,20 +6,22 @@
 </head>
 <body>
 <script>
+    function rev(arr) {
+        let brr = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            brr.push(arr[i])
+        }
+        return brr;
+    }
 
-  let arr = [1,2,3,4,5,6,7,8,9];
-   daonguoc(arr)
-  function daonguoc(arr) {
-     let dau = 0;
-     let cuoi = arr.length - 1;
-     while (dau < cuoi) {
-         let moi = arr[dau];
-         arr[dau] = arr[cuoi];
-         arr[cuoi] = moi;
-         dau++;
-         cuoi--;
-     }
-   } document.write(arr)
+    let n = +prompt('nhập độ dài của mảng:');
+    let array = new Array(n);
+    for (let i = 0; i <array.length ; i++) {
+        let element = prompt("nhập vào phần tử thứ : "+i);
+        array[i]=element;
+    }
+    alert("mảng vừa nhập : "+ array);
+    alert("mảng vừa đảo là : "+ rev(array));
 </script>
 </body>
 </html>

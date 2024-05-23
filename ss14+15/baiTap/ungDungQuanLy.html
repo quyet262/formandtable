@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Thêm sản phẩm mới</h1><br>
+<input type="text" id="newproduct"><button id="add" onclick="addItem()">Add</button>
+<h1>Danh sách sản phẩm</h1><br>
+<pre><span><h2>Tên sản phẩm</h2></span>       <span id="soLuong"></span></pre>
+<div id="result"></div>
+</body>
+</html>
+<script>
+    let listItem = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note4","Apple Iphone 6S", "Xiaomi Mi 5s Plus", "Apple iphone 8 Plus", "Fujitsu F-04E","Oppo A71"];
+    display()
+    function display() {
+        let data = `<table border="1" cellspacing="0px" cellpadding="3px">
+<tr>
+<th>STT</th>
+<th>Tên SP</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>`
+        for (let i = 0; i < listItem.length; i++) {
+            data += `<tr>
+<td>${i + 1}</td>
+<td>${listItem[i]}</td>
+<td><button onclick="editproduclt(${i})">Edit</button></td>
+<td><button onclick="deleteproduclt(${i})">Delete</button></td>
+</tr>`
+        }
+        data += `</table>`
+        document.getElementById('result').innerHTML = data
+    }
+    function editproduclt(a) {
+        listItem[a] = prompt('Cần sửa')
+        display()
+    }
+    function deleteproduclt (b) {
+        listItem.splice(b,1);
+        display();
+    }
+    function addItem () {
+        listItem.push(document.getElementById('newproduct').value);
+        document.getElementById('soLuong').innerHTML = listItem.length + 'Sản phẩm';
+        display()
+    }
+
+
+
+
+</script>
