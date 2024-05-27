@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function hieuChanLe(arr) {
+    let sumChan = 0;
+    let sumLe = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            sumChan += arr[i];
+        } else {
+            sumLe += arr[i]
+        }
+    }
+    return  sumChan - sumLe;
+
+}
+let n;
+do {
+    n = +prompt('Nhập chiều dài của mảng: ');
+    if (n > 20) {
+        alert('Giá trị nhập vào phải nhỏ hơn hoặc bằng 20. Vui lòng nhập lại.');
+    }
+} while (n > 20);
+
+let array = new Array(n);
+for (let i = 0; i < array.length; i++) {
+    let element = +prompt('Nhập phần tử thứ ' + i + ' của mảng');
+    array[i] = element;
+}
+
+alert('Mảng vừa nhập là: ' + array);
+alert(`Hiệu của tổng chẵn và tổng lẻ là: ${hieuChanLe(array)}`);
+
+
+
+
+
+</script>
+</body>
+</html>

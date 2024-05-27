@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function insertNumberToArray(x,index,array) {
+    if (index < 0 || index > array.length -1) {
+        return array
+    }else {
+        array.splice(index, 0 , x);
+        return array
+    }
+}
+let mangnhap = [1,7,8,4,6,9,2];
+let vitri = +prompt(`nhap vi tri can them`);
+let giatri = +prompt(`nhap gia tri can them: `);
+let mangxuat = insertNumberToArray(giatri,vitri,mangnhap);
+alert(mangxuat);
+</script>
+</body>
+</html>

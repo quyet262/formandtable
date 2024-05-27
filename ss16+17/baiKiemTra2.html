@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkInHoa(index) {
+        let inHoa = 'QWERTYUIOPLKJHGFDSAZXCVBNM';
+        let dem = 0;
+        for (let i = 0; i < index.length; i++) {
+            if (inHoa.indexOf(index[i]) !== -1) {
+                dem++;
+            }
+        }
+        if (dem == 0) {
+            alert("The Strings is not contain upper char");
+        } else
+            return dem;
+    }
+
+    let chuoiNhap = prompt('nhập vào chuỗi cần kiểm tra: ');
+    document.write(`Chuỗi bạn nhập có ${checkInHoa(chuoiNhap)} kí tự in hoa`);
+</script>
+</body>
+</html>
