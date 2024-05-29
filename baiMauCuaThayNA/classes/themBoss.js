@@ -1,26 +1,22 @@
-const startButton = document.getElementById('startButton');
-const startScreen = document.getElementById('startScreen');
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-
-startButton.addEventListener('click', () => {
-    startScreen.style.display = 'none'; // Ẩn trang bắt đầu
-    canvas.style.display = 'block'; // Hiển thị canvas
-    startGame(); // Bắt đầu trò chơi
-});
 function startGame() {
-    // Khởi tạo các biến
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
     const shipImage = new Image();
     const bulletImage = new Image();
     const enemyImage = new Image();
     const enemyBulletImage = new Image();
     const backgroundImage = new Image();
+    const bossImage = new Image();
+    const bossBulletImage = new Image();
 
-    shipImage.src = 'ship.png'; // Đường dẫn tới hình ảnh của tàu
-    bulletImage.src = 'bullets.png'; // Đường dẫn tới hình ảnh của đạn
-    enemyImage.src = 'enemy.png'; // Đường dẫn tới hình ảnh của kẻ thù
-    enemyBulletImage.src = 'enemyBullets.png'; // Đường dẫn tới hình ảnh của đạn kẻ thù
-    backgroundImage.src = 'background.jpg'; // Đường dẫn tới hình ảnh của nền
+    shipImage.src = 'ship.png';
+    bulletImage.src = 'bullets.png';
+    enemyImage.src = 'enemy.png';
+    enemyBulletImage.src = 'enemyBullets.png';
+    backgroundImage.src = 'background.jpg';
+    bossImage.src = 'boss.png';
+    bossBulletImage.src = 'bossBullet.png';
 
     const ship = {
         x: canvas.width / 2 - 25,
@@ -35,25 +31,27 @@ function startGame() {
     const bullets = [];
     const enemies = [];
     const enemyBullets = [];
+    const bossBullets = [];
     let score = 0;
     let gameOver = false;
     let level = 1;
     let enemySpeed = 2;
     let enemyBulletSpeed = 5;
-    let enemyInterval = 1000; // Thời gian tạo kẻ thù ban đầu (1 giây)
+    let enemyInterval = 1000;
+    let boss = null;
+    let shooting = false;
 
     function drawBackground() {
         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     }
 
-    // Vẽ tàu
     function drawShip() {
         ctx.drawImage(shipImage, ship.x, ship.y, ship.width, ship.height);
     }
 
-    // Bắn đạn
-    function shootBullet(e) {
-        if (e.key === ' ') {
+    function shootBullet() {
+        if (!shooting) {
+            shooting = true;
             const bullet = {
                 x: ship.x + ship.width / 2 - 2.5,
                 y: ship.y,
@@ -62,9 +60,10 @@ function startGame() {
                 speed: 20
             };
             bullets.push(bullet);
+            setTimeout(() => shooting = false, 200);
         }
     }
-    // Vẽ đạn
+
     function drawBullets() {
         for (let i = 0; i < bullets.length; i++) {
             const bullet = bullets[i];
@@ -72,7 +71,6 @@ function startGame() {
         }
     }
 
-    // Tạo kẻ thù mới
     function createEnemy() {
         const enemy = {
             x: Math.random() * (canvas.width - 50),
@@ -84,7 +82,6 @@ function startGame() {
         enemies.push(enemy);
     }
 
-    // Vẽ kẻ thù
     function drawEnemies() {
         for (let i = 0; i < enemies.length; i++) {
             const enemy = enemies[i];
@@ -92,9 +89,6 @@ function startGame() {
         }
     }
 
-
-
-    // Tạo đạn của kẻ thù
     function shootEnemyBullet(enemy) {
         const bullet = {
             x: enemy.x + enemy.width / 2 - 2.5,
@@ -106,7 +100,6 @@ function startGame() {
         enemyBullets.push(bullet);
     }
 
-    // Vẽ đạn kẻ thù
     function drawEnemyBullets() {
         for (let i = 0; i < enemyBullets.length; i++) {
             const bullet = enemyBullets[i];
@@ -114,8 +107,28 @@ function startGame() {
         }
     }
 
+    function shootBossBullets() {
+        if (boss) {
+            for (let i = 0; i < 10; i++) {
+                const bullet = {
+                    x: boss.x + boss.width / 2 - 2.5 + (i * 10 - 45),
+                    y: boss.y + boss.height,
+                    width: 30,
+                    height: 30,
+                    speed: enemyBulletSpeed
+                };
+                bossBullets.push(bullet);
+            }
+        }
+    }
 
-    // Vẽ điểm số
+    function drawBossBullets() {
+        for (let i = 0; i < bossBullets.length; i++) {
+            const bullet = bossBullets[i];
+            ctx.drawImage(bossBulletImage, bullet.x, bullet.y, bullet.width, bullet.height);
+        }
+    }
+
     function drawScore() {
         ctx.fillStyle = 'white';
         ctx.font = '20px Arial';
@@ -123,57 +136,89 @@ function startGame() {
         ctx.fillText(`Level: ${level}`, 10, 40);
     }
 
-    // Cập nhật vị trí tàu
     function updateShip() {
         ship.x += ship.dx;
         ship.y += ship.dy;
 
-        // Giữ tàu trong canvas
         if (ship.x < 0) ship.x = 0;
         if (ship.x + ship.width > canvas.width) ship.x = canvas.width - ship.width;
         if (ship.y < 0) ship.y = 0;
         if (ship.y + ship.height > canvas.height) ship.y = canvas.height - ship.height;
     }
 
-    // Cập nhật vị trí đạn
     function updateBullets() {
         for (let i = 0; i < bullets.length; i++) {
             const bullet = bullets[i];
             bullet.y -= bullet.speed;
             if (bullet.y + bullet.height < 0) {
                 bullets.splice(i, 1);
-                i--; // Điều chỉnh chỉ số sau khi xóa phần tử
+                i--;
             }
         }
     }
 
-    // Cập nhật vị trí đạn kẻ thù
     function updateEnemyBullets() {
         for (let i = 0; i < enemyBullets.length; i++) {
             const bullet = enemyBullets[i];
             bullet.y += bullet.speed;
             if (bullet.y > canvas.height) {
                 enemyBullets.splice(i, 1);
-                i--; // Điều chỉnh chỉ số sau khi xóa phần tử
+                i--;
             }
         }
     }
 
-    // Cập nhật vị trí kẻ thù
+    function updateBossBullets() {
+        for (let i = 0; i < bossBullets.length; i++) {
+            const bullet = bossBullets[i];
+            bullet.y += bullet.speed;
+            if (bullet.y > canvas.height) {
+                bossBullets.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
     function updateEnemies() {
         for (let i = 0; i < enemies.length; i++) {
             const enemy = enemies[i];
             enemy.y += enemy.speed;
             if (enemy.y + enemy.height > canvas.height) {
-                enemies.splice(i, 1); // Chỉ loại bỏ kẻ thù khi chúng chạm đáy canvas
-                i--; // Điều chỉnh chỉ số sau khi xóa phần tử
+                enemies.splice(i, 1);
+                i--;
             } else if (Math.random() < 0.01) {
                 shootEnemyBullet(enemy);
             }
         }
     }
 
-    // Xử lý va chạm
+    function createBoss() {
+        boss = {
+            x: Math.random() > 0.5 ? -100 : canvas.width + 100,
+            y: Math.random() * (canvas.height / 2),
+            width: 100,
+            height: 100,
+            speed: 2,
+            direction: Math.random() > 0.5 ? 1 : -1
+        };
+        shootBossBullets();
+    }
+
+    function drawBoss() {
+        if (boss) {
+            ctx.drawImage(bossImage, boss.x, boss.y, boss.width, boss.height);
+        }
+    }
+
+    function updateBoss() {
+        if (boss) {
+            boss.x += boss.speed * boss.direction;
+            if (boss.x > canvas.width || boss.x < -boss.width) {
+                boss = null;
+            }
+        }
+    }
+
     function handleCollisions() {
         for (let bIndex = 0; bIndex < bullets.length; bIndex++) {
             const bullet = bullets[bIndex];
@@ -186,17 +231,20 @@ function startGame() {
                     bullet.y + bullet.height > enemy.y
                 ) {
                     bullets.splice(bIndex, 1);
-                    bIndex--; // Điều chỉnh chỉ số sau khi xóa phần tử
+                    bIndex--;
                     enemies.splice(eIndex, 1);
-                    eIndex--; // Điều chỉnh chỉ số sau khi xóa phần tử
+                    eIndex--;
                     score += 10;
                     if (score % 100 === 0) {
                         level++;
                         enemySpeed += 1;
                         enemyBulletSpeed += 1;
-                        enemyInterval = Math.max(100, enemyInterval - 200); // Giảm thời gian tạo kẻ thù mỗi khi lên cấp
-                        clearInterval(enemyCreationInterval); // Xóa interval hiện tại
-                        enemyCreationInterval = setInterval(createEnemy, enemyInterval); // Tạo interval mới với thời gian tạo kẻ thù đã giảm
+                        enemyInterval = Math.max(100, enemyInterval - 200);
+                        clearInterval(enemyCreationInterval);
+                        enemyCreationInterval = setInterval(createEnemy, enemyInterval);
+                    }
+                    if (score % 500 === 0) {
+                        createBoss();
                     }
                 }
             }
@@ -204,6 +252,18 @@ function startGame() {
 
         for (let i = 0; i < enemyBullets.length; i++) {
             const bullet = enemyBullets[i];
+            if (
+                bullet.x < ship.x + ship.width &&
+                bullet.x + bullet.width > ship.x &&
+                bullet.y < ship.y + ship.height &&
+                bullet.y + bullet.height > ship.y
+            ) {
+                gameOver = true;
+            }
+        }
+
+        for (let i = 0; i < bossBullets.length; i++) {
+            const bullet = bossBullets[i];
             if (
                 bullet.x < ship.x + ship.width &&
                 bullet.x + bullet.width > ship.x &&
@@ -225,9 +285,19 @@ function startGame() {
                 gameOver = true;
             }
         }
+
+        if (boss) {
+            if (
+                ship.x < boss.x + boss.width &&
+                ship.x + ship.width > boss.x &&
+                ship.y < boss.y + boss.height &&
+                ship.y + ship.height > boss.y
+            ) {
+                gameOver = true;
+            }
+        }
     }
 
-    // Cập nhật trò chơi
     function update() {
         if (gameOver) {
             if (confirm(`Game Over! Your Score: ${score}\nDo you want to play again?`)) {
@@ -243,17 +313,20 @@ function startGame() {
         drawBullets();
         drawEnemyBullets();
         drawEnemies();
+        drawBossBullets();
+        drawBoss();
         drawScore();
         updateShip();
         updateBullets();
         updateEnemyBullets();
         updateEnemies();
+        updateBoss();
+        updateBossBullets();
         handleCollisions();
 
         requestAnimationFrame(update);
     }
 
-    // Di chuyển tàu bằng phím mũi tên
     function moveShip(e) {
         if (e.key === 'd' || e.key === 'Right') {
             ship.dx = ship.speed;
@@ -266,7 +339,6 @@ function startGame() {
         }
     }
 
-    // Dừng tàu khi không bấm phím
     function stopShip(e) {
         if (e.key === 'd' || e.key === 'Right' ||
             e.key === 'a' || e.key === 'Left' ||
@@ -277,12 +349,12 @@ function startGame() {
         }
     }
 
-    // Lắng nghe sự kiện bàn phím
     document.addEventListener('keydown', moveShip);
     document.addEventListener('keyup', stopShip);
-    document.addEventListener('keydown', shootBullet);
-    // Tạo kẻ thù mới mỗi giây
+    document.addEventListener('keydown', (e) => {
+        if (e.key === ' ') shootBullet();
+    });
+
     let enemyCreationInterval = setInterval(createEnemy, enemyInterval);
-    // Bắt đầu trò chơi
     update();
 }
