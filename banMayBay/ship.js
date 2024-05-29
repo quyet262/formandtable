@@ -25,13 +25,13 @@ class Ship {
 
 function moveShip(e, ship) {
     if (e.key === 'd' || e.key === 'ArrowRight') {
-        ship.dx = ship.speed;
+        ship.dx = ship.speed;  // Di chuyển sang phải
     } else if (e.key === 'a' || e.key === 'ArrowLeft') {
-        ship.dx = -ship.speed;
+        ship.dx = -ship.speed; // Di chuyển sang trái
     } else if (e.key === 'w' || e.key === 'ArrowUp') {
-        ship.dy = -ship.speed;
+        ship.dy = -ship.speed; // Di chuyển lên trên
     } else if (e.key === 's' || e.key === 'ArrowDown') {
-        ship.dy = ship.speed;
+        ship.dy = ship.speed;  // Di chuyển xuống dưới
     }
 }
 

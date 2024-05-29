@@ -33,10 +33,10 @@ function handleCollisions(ship, bullets, enemies, enemyBullets, scoreCallback, g
     for (let i = 0; i < enemies.length; i++) {
         const enemy = enemies[i];
         if (
-            ship.x < enemy.x + enemy.width &&
-            ship.x + ship.width > enemy.x &&
-            ship.y < enemy.y + enemy.height &&
-            ship.y + ship.height > enemy.y
+            enemy.x < ship.x + ship.width &&
+            enemy.x + enemy.width > ship.x &&
+            enemy.y < ship.y + ship.height &&
+            enemy.y + enemy.height > ship.y
         ) {
             gameOverCallback();
         }

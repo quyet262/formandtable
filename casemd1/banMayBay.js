@@ -55,7 +55,7 @@ function startGame() {
     function shootBullet(e) {
         if (e.key === ' ') {
             const bullet = {
-                x: ship.x + ship.width / 2 - 2.5,
+                x: ship.x + ship.width / 2 - 5,
                 y: ship.y,
                 width: 10,
                 height: 10,

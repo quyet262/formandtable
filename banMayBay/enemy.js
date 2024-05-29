@@ -2,9 +2,9 @@ class Enemy {
     constructor(x, y, speed, width, height) {
         this.x = x;
         this.y = y;
+        this.speed = speed;
         this.width = width;
         this.height = height;
-        this.speed = speed;
     }
 
     draw(ctx, image) {
