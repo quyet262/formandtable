@@ -8,6 +8,7 @@ startButton.addEventListener('click', () => {
     canvas.style.display = 'block'; // Hiển thị canvas
     startGame(); // Bắt đầu trò chơi
 });
+
 function startGame() {
     // Khởi tạo các biến
     const shipImage = new Image();
@@ -42,6 +43,9 @@ function startGame() {
     let enemyBulletSpeed = 5;
     let enemyInterval = 1000; // Thời gian tạo kẻ thù ban đầu (1 giây)
 
+    // Lấy điểm cao từ Local Storage
+    let highScore = localStorage.getItem('highScore') || 0;
+
     function drawBackground() {
         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     }
@@ -64,6 +68,7 @@ function startGame() {
             bullets.push(bullet);
         }
     }
+
     // Vẽ đạn
     function drawBullets() {
         for (let i = 0; i < bullets.length; i++) {
@@ -92,8 +97,6 @@ function startGame() {
         }
     }
 
-
-
     // Tạo đạn của kẻ thù
     function shootEnemyBullet(enemy) {
         const bullet = {
@@ -114,13 +117,13 @@ function startGame() {
         }
     }
 
-
     // Vẽ điểm số
     function drawScore() {
         ctx.fillStyle = 'white';
         ctx.font = '20px Arial';
         ctx.fillText(`Score: ${score}`, 10, 20);
         ctx.fillText(`Level: ${level}`, 10, 40);
+        ctx.fillText(`High Score: ${highScore}`, 10, 60); // Hiển thị điểm cao
     }
 
     // Cập nhật vị trí tàu
@@ -230,7 +233,12 @@ function startGame() {
     // Cập nhật trò chơi
     function update() {
         if (gameOver) {
-            if (confirm(`Game Over! Your Score: ${score}\nDo you want to play again?`)) {
+            // Cập nhật điểm cao nếu người chơi đạt điểm cao mới
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('highScore', highScore);
+            }
+            if (confirm(`Game Over! Your Score: ${score}\nHigh Score: ${highScore}\nDo you want to play again?`)) {
                 document.location.reload();
             } else {
                 return;
@@ -255,23 +263,23 @@ function startGame() {
 
     // Di chuyển tàu bằng phím mũi tên
     function moveShip(e) {
-        if (e.key === 'd' || e.key === 'Right') {
+        if (e.key === 'd' || e.key === 'ArrowRight') {
             ship.dx = ship.speed;
-        } else if (e.key === 'a' || e.key === 'Left') {
+        } else if (e.key === 'a' || e.key === 'ArrowLeft') {
             ship.dx = -ship.speed;
-        } else if (e.key === 'w' || e.key === 'Up') {
+        } else if (e.key === 'w' || e.key === 'ArrowUp') {
             ship.dy = -ship.speed;
-        } else if (e.key === 's' || e.key === 'Down') {
+        } else if (e.key === 's' || e.key === 'ArrowDown') {
             ship.dy = ship.speed;
         }
     }
 
     // Dừng tàu khi không bấm phím
     function stopShip(e) {
-        if (e.key === 'd' || e.key === 'Right' ||
-            e.key === 'a' || e.key === 'Left' ||
-            e.key === 'w' || e.key === 'Up' ||
-            e.key === 's' || e.key === 'Down') {
+        if (e.key === 'd' || e.key === 'ArrowRight' ||
+            e.key === 'a' || e.key === 'ArrowLeft' ||
+            e.key === 'w' || e.key === 'ArrowUp' ||
+            e.key === 's' || e.key === 'ArrowDown') {
             ship.dx = 0;
             ship.dy = 0;
         }
@@ -281,8 +289,10 @@ function startGame() {
     document.addEventListener('keydown', moveShip);
     document.addEventListener('keyup', stopShip);
     document.addEventListener('keydown', shootBullet);
+
     // Tạo kẻ thù mới mỗi giây
     let enemyCreationInterval = setInterval(createEnemy, enemyInterval);
+
     // Bắt đầu trò chơi
     update();
 }

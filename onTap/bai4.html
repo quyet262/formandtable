@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let chuHoa = `QWERTYUIOPLKJHGFDSAZXCVBNM`;
+    let chuThuong = `qwertyuioplkjhgfdsazxcvbnm`;
+    let demHoa = 0;
+    let demThuong = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (chuHoa.indexOf(str[i]) !== -1) {
+        demHoa++;
+      }
+      if (chuThuong.indexOf(str[i]) !== -1) {
+          demThuong++;
+      }
+    }
+    if (demHoa == demThuong){
+        return `true`
+    }
+        return `false`
+  }
+  let nhap = prompt('nhap chuỗi:')
+  let kq = checkString(nhap);
+  alert(kq)
+</script>
+</body>
+</html>

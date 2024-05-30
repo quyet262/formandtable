@@ -5,13 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
-  Your browser does not support the HTML5 canvas tag.</canvas>
 <script>
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  ctx.font = "30px Arial";
-  ctx.fillText("Hello World",10,50);
+    let chuHoa = `QWERTYUIOPLKJHGFDSAZXCVBNM`;
+    let chuThuong = `qwertyuioplkjhgfdsazxcvbnm`;
+    let demHoa = 0;
+    let demThuong = 0;
+    let str = `asdKH`
+    for (let i = 0; i < str.length; i++) {
+        if (chuHoa.indexOf(str[i] ) !== -1) {
+            demHoa++;
+        }
+        if (chuThuong.indexOf(str[i] )!= -1) {
+            demThuong++;
+        }
+    }
+    alert(demThuong)
 </script>
 </body>
 </html>

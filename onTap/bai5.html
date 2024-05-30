@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = '';
+ do {
+   n = +prompt(`nhap chieu dai mang la số chẵn:`);
+ }while (n % 2 !== 0);
+ let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    let element = +prompt(`nhập phần thử thứ ${i} của mảng.`);
+    array[i] = element;
+  }
+  alert(`mảng bạn vừa tạo là ${array}`);
+  let dem = 0;
+  for (let i = 0; i < array.length; i+=2) {
+    if (array[i] < array[i + 1]) {
+      dem++;
+    }
+  }
+  if (dem == array.length/2) {
+    alert(`OK`)
+  }else {
+    alert(`NO`)
+  }
+</script>
+</body>
+</html>

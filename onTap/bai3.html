@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt(`nhập độ dài của mảng; `);
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    let element = prompt(`nhập phần tử thứ ${i} của mảng;`);
+    array[i] = element;
+  }
+  alert(`mảng vừa tạo là  ${array}`);
+  let demtang = 0;
+  let demgiam = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > array[i+1] ) {
+      demtang++
+    }else if (array[i] < array[i+1]) {
+      demgiam++
+    }
+  }
+  if (demtang == array.length - 1 || demgiam == array.length - 1) {
+    alert(`ok`)
+  }else {
+    alert(`no`)
+  }
+</script>
+</body>
+</html>
