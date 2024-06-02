@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt(`nhập chiều dài mảng`);
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        let element = +prompt(`nhập phần tử thứ ${i} của mảng:`);
+        array[i] = element;
+    }
+    alert(`mảng bạn vừa tạo là ${array}`);
+    let dau = 0;
+    let cuoi = array.length - 1;
+    let dem = 0;
+
+    if (array.length % 2 === 0) {
+
+        for (let i = 0; i < array.length / 2; i++) {
+            if (array[dau] === array[cuoi]) {
+                dem++;
+                dau++;
+                cuoi--;
+            }
+        }
+        if (dem == array.length / 2) {
+            alert(`OK`);
+        } else {
+            alert(`NO`);
+        }
+
+    }else {
+
+        for (let i = 0; i < array.length / 2 - 1; i++) {
+            if (array[dau] === array[cuoi]) {
+                dem++;
+                dau++;
+                cuoi--;
+            }
+        }
+        if (dem == Math.floor(array.length/2)) {
+            alert(`OK`);
+        } else {
+            alert(`NO`);
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

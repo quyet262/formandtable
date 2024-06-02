@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let inHoa = "QWERTYUIOPLKJHGFDSAZXCVBNM";
+    let result = [];
+    for (let i = 0; i < str.length; i++) {
+      if (inHoa.indexOf(str[i]) != -1) {
+        let viTri = inHoa.indexOf(str[i]);
+       result.push(inHoa[viTri]);
+      }
+    }
+    return result.join("");
+
+  }
+  let a = "Xin CHao HoNeyY"
+  console.log(checkString(a));
+  alert(checkString(a))
+</script>
+</body>
+</html>

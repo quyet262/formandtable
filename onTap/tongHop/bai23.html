@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkArray(array) {
+    let dem = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (isNaN(array[i])){
+      return false
+  }else {
+      dem++
+      }
+    }if (dem == array.length){
+      return true
+    }
+    }
+  let a = [221.7,123,133,"4"];
+  alert(checkArray(a))
+</script>
+</body>
+</html>

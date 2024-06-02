@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt(`nhập chiều dài của mảng:`)
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    let element = +prompt(`nhập phần tử thứ ${i} của mảng:`);
+    array[i] = element;
+  }
+  alert(`mảng bạn vừa tạo là ${array}`);
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  let trungBinh = sum/array.length
+  let dem = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == trungBinh) {
+      dem++;
+    }
+  }
+  alert(`giá trị trung bình của mảng là ${trungBinh}`)
+  alert(`số lượng số có giá trị bằng trung bình của mảng là: ${dem}`)
+</script>
+</body>
+</html>

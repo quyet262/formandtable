@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let m = +prompt("Nhập số hàng của mảng:");
+  let n = +prompt("Nhập số cột của mảng:");
+  let array = new Array(m);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = new Array(n);
+    for (let j = 0; j < array[i].length; j++) {
+      array[i][j] = +prompt(`Nhập phần tử thứ [${i}][${j}] của mảng:`);
+    }
+  }
+  console.log(array)
+  if (n == m) {
+    let sumChinh = 0;
+    let sumPhu = 0;
+    for (let i = 0; i < array.length; i++) {
+      sumChinh += array[i][i];
+      sumPhu += array[i][array.length - i - 1];
+    }
+    sum = sumChinh + sumPhu;
+    console.log(sum);
+  }
+
+</script>
+</body>
+</html>

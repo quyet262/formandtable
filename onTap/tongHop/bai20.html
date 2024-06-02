@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt(`nhap chiều dài của mảng:`);
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    let element = +prompt(`nhập phần tử thứ ${i} của mảng:`);
+    array[i] = element;
+  }
+  alert(`mảng vừa tạo là ${array}`);
+  let sum = 0;
+  for (let i = 1; i < array.length; i+=2) {
+    if (array[i] % 2 == 0) {
+      sum += array[i];
+    }
+  }
+  alert(sum);
+</script>
+</body>
+</html>

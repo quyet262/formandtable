@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkArray(array) {
+    let demChan= 0;
+    let demLe= 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 === 0) {
+        demChan++;
+      }
+      else {
+        demLe++;
+      }
+    }
+    if (demChan === array.length) {
+      return 1;
+    }
+    if (demLe === array.length) {
+      return 0;
+    }else {
+      return -1
+    }
+  }
+  let arr = [2,2,4,6,1];
+  alert(checkArray(arr))
+</script>
+</body>
+</html>

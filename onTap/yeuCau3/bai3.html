@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkNumber(arr) {
+    let dem = 0;
+    for (let i = 0; i < arr.length; i++) {
+      let soUoc = 0;
+      for (let j = 1; j <= arr[i] ; j++) {
+        if (arr[i] % j === 0) {
+          soUoc++;
+        }
+      }
+      if (soUoc === 2) {
+        dem++;
+      }else {
+        return false
+      }
+    }if (dem === arr.length){
+      return true
+    }
+  }
+  let a = [2,5,7,11]
+  console.log(checkNumber(a));
+</script>
+</body>
+</html>

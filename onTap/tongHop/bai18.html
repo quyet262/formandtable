@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt(`nhap chiều dài của mảng:`);
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+      let element = +prompt(`nhập phần tử thứ ${i} của mảng:`);
+      array[i] = element;
+  }
+  alert(`mảng vừa tạo là ${array}`);
+  let soNguyenTo = 0;
+  let souoc = 0;
+  for (let i = 0; i < array.length; i++) {
+     if(array[i] < 2) {
+         alert(`NO`);
+         break;
+     }
+     else {
+         for (let j = 1; j <= array[i]; j++) {
+             if (array[i] % j == 0) {
+                 souoc++;
+             }
+         }
+         if (souoc == 2) {
+             soNguyenTo++;
+         }
+     }souoc=0;
+  }
+  if (soNguyenTo == array.length) {
+      alert(`OK`)
+  }else {
+      alert(`NO`)
+  }
+</script>
+</body>
+</html>

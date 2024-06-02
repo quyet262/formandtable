@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkTrianle(x,y,z) {
+      if (x > y && x > z) {
+          if (Math.pow(x, 2) == (Math.pow(y, 2) + Math.pow(z, 2))) {
+            return `${x}, ${y}, ${z} là 3 cạnh của 1 tam giác vuông`
+          }
+      }
+      if (y > x && y > z) {
+          if (Math.pow(y, 2) == (Math.pow(x, 2) + Math.pow(z, 2))) {
+              return`${x}, ${y}, ${z} là 3 cạnh của 1 tam giác vuông`;
+          }
+      }
+      if (z > y && z > x) {
+          if (Math.pow(z, 2) == (Math.pow(y, 2) + Math.pow(x, 2))) {
+              return`${x}, ${y}, ${z} là 3 cạnh của 1 tam giác vuông`;
+          }
+      }
+      if (x+y>z && x+z>y && y+z>x) {
+          return `${x}, ${y}, ${z} là 3 cạnh của 1 tam giác`;
+      }else {
+          return `${x}, ${y}, ${z} không phải là 3 cạnh của 1 tam giác`;
+      }
+  }
+console.log(checkTrianle(3,4,6))
+
+
+</script>
+</body>
+</html>

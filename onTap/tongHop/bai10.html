@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  let n = +prompt(`nhập chiều dài của mảng:`)
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    let element = +prompt(`nhập phần tử thứ ${i} của mảng:`);
+    array[i] = element;
+  }
+  alert(`mảng bạn vừa tạo là ${array}`);
+  let brr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (Math.sqrt(array[i]) % 1 ==0 ) {
+      brr.push(array[i]);
+    }
+  }
+  alert(`các số chính phương có trong mảng là ${brr}`);
+</script>
+</body>
+</html>

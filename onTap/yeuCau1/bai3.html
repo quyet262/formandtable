@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findMaxNumber(num) {
+        let str = num.toString();
+        let array = [];
+        for (let i = 0; i < str.length; i++) {
+            array.push(str[i]);
+        }
+        if (array.length != 4) {
+            return -1
+        } else {
+            for (let i = 0; i < array.length - 3; i++) {
+                if (array[i] < array[i + 1]) {
+                    array.splice(i, 1);
+                    let result = array.join('');
+                    return result;
+                } else if (array[i + 1] < array[i + 2]) {
+                    array.splice(i + 1, 1);
+                    let result = array.join('');
+                    return result;
+                } else if (array[i + 1] > array[i + 2]) {
+                    array.splice(i+2, 1);
+                    let result = array.join('');
+                    return result;
+                }
+            }
+        }
+    }
+
+    alert(findMaxNumber(1279));
+</script>
+</body>
+</html>

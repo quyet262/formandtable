@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function changeBinary(num) {
+   if (typeof num !== "number") {
+       return `nhập vào 1 số`
+   }
+   let result = []
+      while (num > 0) {
+       let phanDu = num%2
+       result.push(phanDu);
+       num = parseInt(num/2)
+      }
+   result.reverse();
+   let arr = result.join('')
+return arr
+  }
+  alert(changeBinary(2));
+</script>
+</body>
+</html>

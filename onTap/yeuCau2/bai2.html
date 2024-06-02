@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function find(x) {
+    // Kiểm tra xem x có chứa dấu gạch chéo và không có dấu cách
+    if (typeof x !== 'string' || x.indexOf('/') === -1 || x.includes(' ')) {
+      console.log("Không phải là phân số");
+      return;
+    }
+
+    // Tách tử số và mẫu số
+    let parts = x.split('/');
+    if (parts.length !== 2) {
+      console.log("Không phải là phân số");
+      return;
+    }
+
+    // Chuyển đổi tử số và mẫu số sang số nguyên
+    let numerator = parseInt(parts[0], 10);
+    let denominator = parseInt(parts[1], 10);
+
+    // Kiểm tra xem tử số và mẫu số có phải là số hợp lệ không
+    if (isNaN(numerator) || isNaN(denominator)) {
+      console.log("Không phải là phân số");
+      return;
+    }
+
+    // Hàm tính UCLN (Ước chung lớn nhất) sử dụng thuật toán Euclid không đệ quy
+    function gcd(a, b) {
+      while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+      }
+      return a;
+    }
+
+    // Tìm UCLN của tử số và mẫu số
+    let gcdValue = gcd(numerator, denominator);
+
+    // Rút gọn tử số và mẫu số
+    numerator /= gcdValue;
+    denominator /= gcdValue;
+
+    // Hiển thị phân số tối giản
+    console.log(`${numerator}/${denominator}`);
+  }
+
+  // Các ví dụ kiểm tra hàm
+  find("4/8"); // Kết quả là 1/2
+  find("10/20"); // Kết quả là 1/2
+  find("15/5"); // Kết quả là 3/1
+  find("3/7"); // Kết quả là 3/7
+  find("abc"); // Kết quả là Không phải là phân số
+  find("5/"); // Kết quả là Không phải là phân số
+  find("5/0"); // Kết quả là 5/0 vì mẫu số là 0
+  find("4 / 8"); // Kết quả là Không phải là phân số
+
+</script>
+</body>
+</html>

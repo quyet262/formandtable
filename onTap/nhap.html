@@ -5,19 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+<ol type="1" start="3">
+    <li>add</li>
+    <li>add</li>
+    <li>add</li>
+</ol>
 <script>
-    let arr = [1,2,3,1,4,9]
-    let dem = 0;
-    for (let i = 0; i < arr.length/2; i++) {
-        if (arr[i + arr.length/2] == arr[i]*arr[i]) {
-            dem++;
-        }
-    }
-    if(dem == arr.length/2) {
-        alert(`true`)
-    }else {
-        alert(`false`)
-    }
+let a = [1,4,3,8,44,5,35];
+let b = a.sort((a,b)=>b-a)
+alert(b)
 </script>
 </body>
 </html>

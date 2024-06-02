@@ -6,20 +6,16 @@
 </head>
 <body>
 <script>
-    let chuHoa = `QWERTYUIOPLKJHGFDSAZXCVBNM`;
-    let chuThuong = `qwertyuioplkjhgfdsazxcvbnm`;
-    let demHoa = 0;
-    let demThuong = 0;
-    let str = `asdKH`
-    for (let i = 0; i < str.length; i++) {
-        if (chuHoa.indexOf(str[i] ) !== -1) {
-            demHoa++;
+    function checkString(str) {
+        let result = [];
+        for (let i = 0; i < str.length; i++) {
+            if (!isNumberOrLetter(str[i])) {
+                result.push(str[i]);
+            }
         }
-        if (chuThuong.indexOf(str[i] )!= -1) {
-            demThuong++;
-        }
+        return result;
     }
-    alert(demThuong)
+
 </script>
 </body>
 </html>

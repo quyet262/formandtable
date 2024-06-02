@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let result = [];
+    for (let i = 0; i < str.length; i++) {
+      if (!/^[a-zA-Z0-9]$/.test(str[i])) {
+        result.push(str[i]);
+      }
+    }
+    return result;
+  }
+
+  // Ví dụ sử dụng
+  let inputStr = "Hello, World! 123";
+  let nonAlphanumericChars = checkString(inputStr);
+  console.log(nonAlphanumericChars);
+
+</script>
+</body>
+</html>
