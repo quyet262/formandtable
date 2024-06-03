@@ -5,16 +5,35 @@
     <title>Title</title>
 </head>
 <body>
+<canvas id="canvas" width="600" height="600" style="border: 1px solid red"></canvas>
 <script>
-    function checkString(str) {
-        let result = [];
-        for (let i = 0; i < str.length; i++) {
-            if (!isNumberOrLetter(str[i])) {
-                result.push(str[i]);
-            }
+    class Rectangle {
+        constructor(width, height) {
+            this.width =width;
+            this.height = height;
         }
-        return result;
+        setWidth(width){
+            this.width=width;
+        }
+        getWidth(){
+            return this.width;
+        }
+        show(x0,y0){
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d");
+            ctx.fillStyle = "red";
+            ctx.fillRect(x0,y0,this.width,this.height);
+        }
     }
+
+
+    let rec1 = new Rectangle(100,200);
+
+    rec1.width=400;
+    rec1.show(0,0);
+    let rec2 = new Rectangle(100,300)
+    rec2.show(300,300);
+
 
 </script>
 </body>

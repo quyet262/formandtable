@@ -47,6 +47,7 @@ function startGame() {
         dx: 0,
         dy: 0
     };
+
     function drawShip() {
         ctx.drawImage(shipImage, ship.x, ship.y, ship.width, ship.height);
     }
@@ -213,6 +214,7 @@ function startGame() {
             }
         }
     }
+
     function update() {
         if (gameOver) {
             if (score > highScore) {
@@ -241,6 +243,7 @@ function startGame() {
 
         requestAnimationFrame(update);
     }
+
     function moveShip(e) {
         if (e.key === 'd' || e.key === 'ArrowRight') {
             ship.dx = ship.speed;

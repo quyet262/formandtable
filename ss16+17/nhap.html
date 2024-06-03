@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Color Example</title>
+</head>
+<body>
+
+<div id="colorBox" style="width:200px; height:200px; border:1px solid #000;">
+  Color Box
+</div>
+
+<button onclick="changeColor()">Change Color</button>
+
+<script>
+  function getRandomHex(){
+    return Math.floor(Math.random() * 256);
+  }
+
+  function getRandomColor(){
+    var red = getRandomHex();
+    var green = getRandomHex();
+    var blue = getRandomHex();
+    return "rgb(" + red + "," + green + "," + blue + ")";
+  }
+
+  function changeColor() {
+    var colorBox = document.getElementById('colorBox');
+    colorBox.style.backgroundColor = getRandomColor();
+  }
+</script>
+
+</body>
+</html>
