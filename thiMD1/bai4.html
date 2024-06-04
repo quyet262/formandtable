@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    class Phone {
+        constructor(maDienThoai, tenDienThoai, hangDienThoai, giaDienThoai) {
+            this.maDienThoai = maDienThoai;
+            this.tenDienThoai = tenDienThoai;
+            this.hangDienThoai = hangDienThoai;
+            this.giaDienThoai = giaDienThoai;
+        }
+
+        getMaDienThoai() {
+            return this.maDienThoai;
+        }
+
+        setMaDienThoai(maDienThoai) {
+            this.maDienThoai = maDienThoai;
+        }
+
+        getTen() {
+            return this.tenDienThoai;
+        }
+
+        setTen(ten) {
+            this.tenDienThoai = ten;
+        }
+
+        getHang() {
+            return this.hangDienThoai;
+        }
+
+        setHang(hang) {
+            this.hangDienThoai = hang;
+        }
+
+        getGia() {
+            return this.giaDienThoai;
+        }
+
+        setGia(gia) {
+            this.giaDienThoai = gia;
+        }
+
+        toSting() {
+            return `Mã điện thoại: ${this.maDienThoai}. Tên điện thoại: ${this.tenDienThoai}. Hãng điện thoại: ${this.hangDienThoai}. Giá: ${this.giaDienThoai}`
+        }
+
+    }
+
+    let dt1 = new Phone(1, "iphone11", "Iphone", 100);
+    let dt2 = new Phone(2, "SanSung galaxy", "Samsung", 80);
+    let dt3 = new Phone(3, "Xiaomi Mi9", "Xiaomi", 60);
+    let khoDienThoai = [dt1, dt2, dt3];
+    console.log(khoDienThoai);
+    console.log(dt1);
+    console.log(dt1.toSting());
+
+
+</script>
+</body>
+</html>

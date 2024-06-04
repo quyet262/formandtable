@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Random Color Example</title>
+  <title>Disable Button Example</title>
 </head>
 <body>
 
-<div id="colorBox" style="width:200px; height:200px; border:1px solid #000;">
-  Color Box
-</div>
-
-<button onclick="changeColor()">Change Color</button>
+<input type="checkbox" id="myCheckbox"> Disable Button
+<br><br>
+<button id="myButton">Click Me!</button>
 
 <script>
-  function getRandomHex(){
-    return Math.floor(Math.random() * 256);
+  // Hàm để cập nhật trạng thái của nút
+  function updateButtonState() {
+    const checkbox = document.getElementById('myCheckbox');
+    const button = document.getElementById('myButton');
+    button.disabled = checkbox.checked;
   }
 
-  function getRandomColor(){
-    var red = getRandomHex();
-    var green = getRandomHex();
-    var blue = getRandomHex();
-    return "rgb(" + red + "," + green + "," + blue + ")";
-  }
-
-  function changeColor() {
-    var colorBox = document.getElementById('colorBox');
-    colorBox.style.backgroundColor = getRandomColor();
-  }
+  // Lắng nghe sự kiện 'change' trên hộp kiểm
+  document.getElementById('myCheckbox').addEventListener('change', updateButtonState);
 </script>
 
 </body>

@@ -6,23 +6,24 @@
 </head>
 <body>
 <script>
-  let n = +prompt(`nhập chiều dài mảng:`)
-  let array = new Array(n);
-  for (let i = 0; i < array.length; i++) {
-    let element = ''
-    do {
-      element = +prompt(`nhập phần tử thứ ${i} của mảng`);
-    }while (element<=10 || element >= 100);
-    array[i] = element;
+    let n = +prompt(`nhập chiều dài mảng:`)
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        let element = ''
+        do {
+            element = +prompt(`nhập phần tử thứ ${i} của mảng`);
+        } while (element <= 10 || element >= 100);
+        array[i] = element;
 
-  }alert(`Mảng bạn vừa tạo là ${array}`);
-  let brr = [];
-  for (let i = 0; i < array.length; i++) {
-     if (array[i] % 10 > parseInt(array[i] / 10)) {
-         brr.push(array[i])
-     }
-  }
-  alert(`những số có hàng đơn vị lớn hơn hàng chục là ${brr}`);
+    }
+    alert(`Mảng bạn vừa tạo là ${array}`);
+    let brr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 10 > parseInt(array[i] / 10)) {
+            brr.push(array[i])
+        }
+    }
+    alert(`những số có hàng đơn vị lớn hơn hàng chục là ${brr}`);
 </script>
 </body>
 </html>

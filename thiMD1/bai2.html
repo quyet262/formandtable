@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let inHoa = "QWERTYUIOPLKJHGFDSAZXCVBNM"
+        let dem = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (inHoa.indexOf(str[i]) !== -1) {
+                dem++;
+            }
+        }
+        if (dem === 0) {
+            return "The String is not contain upper char";
+        } else {
+            return dem;
+        }
+    }
+
+    let chuoi = "xin Chao"
+    console.log(checkString(chuoi));
+</script>
+</body>
+</html>

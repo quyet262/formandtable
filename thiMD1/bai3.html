@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function timSoNguyenTo(arr) {
+
+        let soNguyenTo = [];
+        for (let i = 0; i < arr.length; i++) {
+            let uoc = 0;
+            for (let j = 1; j <= arr[i]; j++) {
+                if (arr[i] % j === 0) {
+                    uoc++;
+                }
+            }
+            if (uoc === 2) {
+                soNguyenTo.push(arr[i]);
+            }
+        }
+        let result = soNguyenTo.sort((a, b) => a - b);
+        return result;
+    }
+
+    let a = [11, 1, 2, 5, 4, 6, 7];
+    console.log(timSoNguyenTo(a));
+</script>
+</body>
+</html>

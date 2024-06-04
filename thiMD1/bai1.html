@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = "";
+    do {
+        n = +prompt(`nhập chiều dài của mảng n<=20`)
+    } while (n > 20);
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        let element = +prompt(`nhập phần tử thứ ${i} của mảng`);
+        array[i] = element;
+    }
+    alert(`Mảng vừa tạo là: ${array}`);
+    let sumChan = 0;
+    let sumLe = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            sumChan += array[i];
+        } else {
+            sumLe += array[i];
+        }
+    }
+    let result = sumChan - sumLe;
+    alert(`Tổng các số chẵn - tổng các số lẻ là: ${sumChan} - ${sumLe} = ${result}`);
+
+</script>
+</body>
+</html>
